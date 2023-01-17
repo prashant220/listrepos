@@ -1,0 +1,39 @@
+$primary: #faf4e4;
+
+.landing_container {
+  background-color: #282c34;
+  color: #faf4e4;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+//css for searchbar
+.searchbar_container {
+  display: flex;
+  border: 2px solid $primary;
+  border-radius: 10px;
+  padding: 0.25rem;
+  input {
+    border: 0;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    text-overflow: ellipsis;
+    max-width: 35rem;
+    color: $primary;
+  }
+  .icon {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}

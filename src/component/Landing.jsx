@@ -1,45 +1,27 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import { FaUserSecret } from "react-icons/fa";
-import { DivFlexCenter } from "../globals/styles";
+import "../css/landing.scss";
+import { useHistory, useNavigate, withRouter } from "react-router-dom";
+
 import { GoMarkGithub as GithubIcon } from "react-icons/go";
 import SearchBar from "./SearchBar";
 
 export default function Landing() {
-  const Container = styled.section`
-    background-color: #282c34;
-    color: #faf4e4;
-  `;
+  const navigate = useNavigate();
 
-  const Wrapper = styled(DivFlexCenter)`
-    height: 100vh;
-    flex-direction: column;
-    gap: 1rem;
-  `;
-
-  const SecretLI = styled.a`
-    ${({ theme }) => css`
-      color: ${theme.colors.secondary};
-      font-size: 2rem;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      cursor: pointer;
-
-      &:hover {
-        color: ${theme.colors.primary};
-      }
-    `}
-  `;
+  //Route to Search component on submit and update url params with input value
+  const routeChange = (input) => {
+    let path = `/search/${input}`;
+    navigate(path);
+  };
 
   return (
-    <Container id="Filters">
-      <Wrapper>
+    <div className="landing_container">
+      <div className="wrapper">
         <h1>
           <GithubIcon /> Github Repository Search
         </h1>
-        <SearchBar placeholder="Search..." />
-      </Wrapper>
-    </Container>
+        <SearchBar onSubmit={routeChange} placeholder="Search..." />
+      </div>
+    </div>
   );
 }

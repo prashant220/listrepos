@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/error" element={<Error />} />
         <Route path="/repository/*" element={<RepoDetails />} />
-        <Route path="/search/:q" element={<Search />} />
+        <Route path="/search/:repo" element={<Search />} />
       </Routes>
     </Router>
   );
