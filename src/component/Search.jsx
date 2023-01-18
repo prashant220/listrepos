@@ -12,6 +12,7 @@ import {
   GoChevronLeft as LeftIcon,
   GoChevronRight as RightIcon,
 } from "react-icons/go";
+import Error from "./Error";
 export default function Search() {
   let { repo } = useParams();
   const [data, setData] = useState("");
@@ -21,15 +22,23 @@ export default function Search() {
   const [list, setList] = useState("");
   const [sort, setSort] = useState("");
   const [order, setOrder] = useState("");
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     async function get_all_repos() {
       const res = await search_repo(repo, page, perPage, order, sort);
-      setList(res?.data);
-      setData(res?.data?.items);
-      console.log(res);
+      if (res?.status === 200) {
+        setList(res?.data);
+        setLoading(false);
+        setData(res?.data?.items);
+        setLoading(false);
+        console.log(res);
+      } else {
+        setLoading(false);
+      }
     }
     get_all_repos();
-  }, [repo, page, perPage, order, sort]);
+  }, [repo, page, perPage, order, sort, loading]);
 
   const sortOptions = [
     { label: "Best match", sort: "" },
@@ -61,7 +70,9 @@ export default function Search() {
   };
 
   console.log(page);
-  return (
+  return loading ? (
+    "Loading..."
+  ) : (
     <div className="searchresult_container">
       <div className="searchresult_header">
         <div className="icons">
@@ -82,23 +93,15 @@ export default function Search() {
           </div>
         </div>
       </div>
-      <SearchResult data={data} />
-      {/* <div className="pagination">
-        <div className="icons_pagination">
-          <LeftIcon />
-          Prev
-        </div>
-        Page
-        <div className="icons_pagination">
-          <RightIcon />
-          Next
-        </div>
-      </div> */}
-      <Pagination
-        handlePageChange={(pageNum) => handlePageChange(pageNum)}
-        paginatedBtn={paginatedBtn}
-        setPerPage={setPerPage}
-      />
+      {list?.total_count > 0 ? <SearchResult data={data} /> : <Error />}
+      {list?.total_count > 0 && (
+        <Pagination
+          handlePageChange={(pageNum) => handlePageChange(pageNum)}
+          paginatedBtn={paginatedBtn}
+          page={page}
+          setPerPage={setPerPage}
+        />
+      )}
     </div>
   );
 }

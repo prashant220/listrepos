@@ -124,3 +124,13 @@ $primary: #faf4e4;
     }
   }
 }
+.pagination_button {
+  padding: 5px 10px;
+  border: none;
+}
+.active {
+  background-color: red;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+}

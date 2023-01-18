@@ -20,7 +20,7 @@ export default function DropdownItems({
   };
   console.log(sortOptions);
   return (
-    <div>
+    <div style={{ display: "flex", gap: "25px" }}>
       <Form.Select
         aria-label="Default select example"
         id="form-div"
@@ -39,12 +39,7 @@ export default function DropdownItems({
         onChange={(e) => handleSortChange(e)}
       >
         {sortOptions.map((item) => {
-          return (
-            <option value={item.sort} selected>
-              {" "}
-              {item.label}
-            </option>
-          );
+          return <option value={item.sort}> {item.label}</option>;
         })}
       </Form.Select>
       <Form.Select
@@ -53,12 +48,7 @@ export default function DropdownItems({
         onChange={(e) => handleOrderChange(e)}
       >
         {orderOptions.map((item) => {
-          return (
-            <option value={item.sort} selected>
-              {" "}
-              {item.label}
-            </option>
-          );
+          return <option value={item.sort}> {item.label}</option>;
         })}
       </Form.Select>
     </div>

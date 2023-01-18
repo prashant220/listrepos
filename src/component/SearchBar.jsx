@@ -21,7 +21,9 @@ export default function SearchBar({ value = "", onSubmit }) {
   };
   //trigger handleSubmit only when enter button is pressed within search input field or search icon is clicked
   const handleKeyPress = (e) => {
-    handleSubmit();
+    if (e.key === "Enter" || e.currentTarget.title === "search") {
+      input ? handleSubmit() : alert("Please enter search term to get results");
+    }
   };
 
   return (
@@ -32,11 +34,12 @@ export default function SearchBar({ value = "", onSubmit }) {
         value={input || ""}
         placeholder={"Search..."}
         onChange={handleInput}
+        onKeyPress={handleKeyPress}
       />
       <div className="icon">
         {input && <MdClear value="" onClick={handleInput} />}
       </div>
-      <div className="icon" onClick={handleKeyPress}>
+      <div className="icon" onClick={handleSubmit}>
         <FaSearch />
       </div>
     </div>
