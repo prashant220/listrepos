@@ -38,7 +38,7 @@ A simple 3 page design that consists of a landing page, search results, and deta
 
 ## Components
 
-- Dropdown
+- DropdownItems
 - Error
 - Filters
 - Landing
@@ -46,5 +46,6 @@ A simple 3 page design that consists of a landing page, search results, and deta
 - Search
 - SearchBar
 - SearchResults
+-Pagination
 
 ```
