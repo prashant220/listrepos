@@ -2,11 +2,10 @@ import React from "react";
 import { GoStar as StarIcon, GoRepoForked as ForkIcon } from "react-icons/go";
 
 export default function SearchResult({ data }) {
+  console.log(data);
   return (
     <div className="list_container">
-      {Object.entries(data?.items).map(([key, value]) => {
-        console.log(value);
-
+      {Object.entries(data).map(([key, value]) => {
         return (
           <div className="list_repo">
             <a>{value?.full_name}</a>

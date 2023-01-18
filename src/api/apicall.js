@@ -12,9 +12,11 @@ export const base = () => {
 };
 //get users repo from query
 
-export const search_repo = async (item) => {
+export const search_repo = async (item, page, per_page, order, sort) => {
   return await base()
-    .get(`search/repositories?q=${item}`)
+    .get(
+      `search/repositories?q=${item}&sort=${sort}&order=${order}&per_page=${per_page}&page=${page}`
+    )
 
     .then(function (response) {
       return response;

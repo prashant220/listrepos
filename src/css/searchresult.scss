@@ -63,3 +63,21 @@ $primary: #faf4e4;
     font-size: 0.7rem;
   }
 }
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+.icons_pagination {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+
+  align-items: center;
+  ::placeholder {
+    color: #fff;
+  }
+}
