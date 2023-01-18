@@ -6,6 +6,7 @@ import { useHistory, useNavigate, withRouter } from "react-router-dom";
 
 export default function SearchBar({ value = "", onSubmit }) {
   const [input, setInput] = useState(value);
+
   let navigate = useNavigate();
   const handleInput = (e) => {
     setInput(e.target.value);
@@ -16,6 +17,7 @@ export default function SearchBar({ value = "", onSubmit }) {
   };
 
   const handleSubmit = () => {
+    setLoading(true)
     routeChange(input);
     onSubmit(input);
   };

@@ -6,17 +6,21 @@ export default function DropdownItems({
   setPerPage,
   sortOptions,
   orderOptions,
+  setLoading,
   setSort,
   setOrder,
 }) {
   const handlePerPageChange = (e) => {
     setPerPage(e.target.value);
+    setLoading(true);
   };
   const handleOrderChange = (e) => {
+    setLoading(true);
     setOrder(e.target.value);
   };
   const handleSortChange = (e) => {
     setSort(e.target.value);
+    setLoading(true);
   };
   console.log(sortOptions);
   return (

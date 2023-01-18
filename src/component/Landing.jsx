@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/landing.scss";
-import { useHistory, useNavigate, withRouter } from "react-router-dom";
+import { Link, useHistory, useNavigate, withRouter } from "react-router-dom";
 
 import { GoMarkGithub as GithubIcon } from "react-icons/go";
 import SearchBar from "./SearchBar";

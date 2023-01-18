@@ -16,7 +16,7 @@ import Error from "./Error";
 export default function Search() {
   let { repo } = useParams();
   const [data, setData] = useState("");
-  const [page, setPage] = useState("1");
+  const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState("10");
   const [paginatedBtn, setPaginatedBtn] = useState(0);
   const [list, setList] = useState("");
@@ -71,7 +71,7 @@ export default function Search() {
 
   console.log(page);
   return loading ? (
-    "Loading..."
+    <h1 style={{ textAlign: "center", marginTop: "100px" }}>Loading...</h1>
   ) : (
     <div className="searchresult_container">
       <div className="searchresult_header">
@@ -84,6 +84,8 @@ export default function Search() {
           </div>
           <div>
             <DropdownItems
+              loading={loading}
+              setLoading={setLoading}
               setPerPage={setPerPage}
               setOrder={setOrder}
               setSort={setSort}
