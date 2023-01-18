@@ -17,7 +17,6 @@ export default function SearchBar({ value = "", onSubmit }) {
   };
 
   const handleSubmit = () => {
-    setLoading(true)
     routeChange(input);
     onSubmit(input);
   };

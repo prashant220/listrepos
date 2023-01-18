@@ -34,7 +34,7 @@ Other packages:
 
 A simple 3 page design that consists of a landing page, search results, and detailed page. The UI is kept clean with a simple color scheme. Number of results are displayed and adjusted based on sort and filtering.
 
-- Desktop: Side Filter for Languages and Dropdown for Sort
+- Desktop:  Filter for Languages and Dropdown for Sort
 
 ## Components
 
